@@ -1,9 +1,9 @@
 # Взаимодействие с ВУЗом и с организацией-партнёром проекта
 В ходе прохождения учебной практики я (Леоненко Роман Александрович, студент учебной группы 241-3211) принял участие во многих активностях ВУЗа [_**Московский Политех**_](https://mospolytech.ru/):
 1. [_**GeekSource**_](https://github.com/k0swel/practice-2025/blob/main/docs/test.md#geeksource)
-
+2. 2ГИС
 --- 
-## GeekSource  
+## GeekSource ![GeekSource logo](https://github.com/user-attachments/assets/e34e5989-2735-4140-961a-4280959fe09a)
 Прежде чем говорить о моём опыте взаимодействия с _**GeekSource**_ , нужно знать, что представляет собой эта компания.  
   
 **[GeekSource](https://geeksource.ru/)** - компания, которая занимается активным поиском квалифицированных IT - специалистов самых разных направлений для дальнейнего их предоставления компаниям, которые остро нуждаются в компетентных сотрудниках.
@@ -18,7 +18,12 @@
   
 И наконец... Фотоотчёт с места событий    
 
-![сообщение с чата экскурсий](https://github.com/user-attachments/assets/a84b173f-1f9d-4593-8f25-213c4df89ff5)
-![Фотография №1](https://github.com/user-attachments/assets/3dbde2b2-bdf6-402f-80ed-4d916f0a9db6)
+![сообщение с чата экскурсий](https://github.com/user-attachments/assets/a84b173f-1f9d-4593-8f25-213c4df89ff5)  
+
+  
+![Фотография №1](https://github.com/user-attachments/assets/3dbde2b2-bdf6-402f-80ed-4d916f0a9db6)  
+
+  
 ![Общее фото](https://github.com/user-attachments/assets/7704564e-fb35-44e7-8c4e-003c029f0511)
 
+---
