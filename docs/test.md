@@ -2,7 +2,7 @@
 В ходе прохождения учебной практики я (Леоненко Роман Александрович, студент учебной группы 241-3211) принял участие во многих активностях ВУЗа [_**Московский Политех**_](https://mospolytech.ru/):
 1. [_**GeekSource**_](https://github.com/k0swel/practice-2025/blob/main/docs/test.md#geeksource) ![GeekSource logo](https://github.com/user-attachments/assets/110e4636-b3d3-44a2-94ee-02ea123664c9)
 
-2. [_**2ГИС**_](https://github.com/k0swel/practice-2025/edit/main/docs/test.md#2%D0%B3%D0%B8%D1%81-) ![2gis logo 16x16](https://github.com/user-attachments/assets/78b2211c-f0a5-49ea-874b-82beab6f983f)
+2. [_**2ГИС**_](https://github.com/k0swel/practice-2025/blob/main/docs/test.md#2%D0%B3%D0%B8%D1%81-) ![2gis logo 16x16](https://github.com/user-attachments/assets/78b2211c-f0a5-49ea-874b-82beab6f983f)
 --- 
 ## GeekSource ![GeekSource logo](https://github.com/user-attachments/assets/e34e5989-2735-4140-961a-4280959fe09a)
 Прежде чем говорить о моём опыте взаимодействия с _**GeekSource**_ , нужно знать, что представляет собой эта компания.  
