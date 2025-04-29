@@ -36,6 +36,17 @@
   margin-right: 3%;
 }
 
+.table_header {
+  text-align: center;
+  font-weight: 900;
+  border: 5px solid transparent;
+  transition: font-size 1s ease;
+}
+
+.table_header:hover {
+  font-size: 35px;
+  backdrop-filter: blur(1px);
+}
 .table_data_first_column {
   border: 2px solid black;
   padding: 8px;
