@@ -126,9 +126,8 @@
         <details>
           <summary>Пояснение</summary>
           <label
-            >Перечислены не все модули, которые выполнил участник(в связи с
-            объёмом).<br />В каждом модуле перечислены не все достижения
-            участника в связи с объёмностью модуля.</label
+            >В каждом модуле перечислены не все достижения участника в связи с
+            объёмностью каждого модуля.</label
           >
         </details>
       </center>
@@ -289,6 +288,75 @@
       <hr class="horizontal_line" />
       <center>
         <p class="text_style_in_btn">
+          Модуль 4. Реализация команды
+          <strong>HelloDrawJig</strong>(предварительная отрисовка
+          прямоугольника).
+        </p>
+        <br />
+        <img
+          class="gif_in_main_container"
+          src="./images/modules/module4/HelloDrawJig.gif"
+          alt="Предварительная отрисовка прямоугольника"
+        />
+        <details>
+          <summary>Программная реализация функционала</summary>
+          <pre class="code_format">
+            <code>
+    [CommandMethod("HelloDrawJig")]
+    public void HelloRECTDIMDrawJig()
+    {
+      // Ссылки на активный dwg-документ, его редактор и базу данных
+      Document doc = Application.DocumentManager.MdiActiveDocument;
+      Editor ed = doc.Editor;
+      Database db = doc.Database;
+      ObjectId CurrentSpaceId = db.CurrentSpaceId; // Использовать, если
+                                             // нужно добавлять объекты в текущий лист, вместо ModelSpace
+
+      // Переменная для базовой точки прямоугольника
+      Point3d p1;
+
+      // Запрос базовой точки прямоугольника
+      PromptPointOptions opts = new PromptPointOptions("Левая нижняя точка прямоугольника: ");
+      PromptPointResult pr = ed.GetPoint(opts);
+
+      if (PromptStatus.OK != pr.Status)
+        return;
+
+      // Сохранение координат базовой точки в переменную
+      p1 = pr.Value;
+
+      // Начало транзакции с базой данных чертежа
+      using (Transaction trans = db.TransactionManager.StartTransaction())
+      {
+        // Открываем таблицу блоков чертежа
+        BlockTable blockTable =
+          trans.GetObject(db.BlockTableId,
+          OpenMode.ForRead) as BlockTable;
+
+        // Открываем пространство модели из таблицы блоков
+        BlockTableRecord modelSpace =
+          trans.GetObject(blockTable[BlockTableRecord.ModelSpace],
+          OpenMode.ForWrite) as BlockTableRecord;
+
+        // Создаем экземпляр класса, который отрисовываем прямоугольник с
+        // размерами по двум сторонам с применением технологии Jig
+        RectDrawJig rectJig = new RectDrawJig(p1);
+
+        // Запускаем отрисовку произвольной графики с технологией Jig
+        pr = (PromptPointResult)ed.Drag(rectJig);
+        if (pr.Status == PromptStatus.OK)
+        {
+          trans.Commit();
+        }
+      }
+    }
+      </code>
+    </pre>
+        </details>
+      </center>
+      <hr class="horizontal_line" />
+      <center>
+        <p class="text_style_in_btn">
           Модуль 5. Реализация команды
           <strong>HelloEditorReactorAdd</strong>(рисуем окружность в текущей
           позиции курсора).
@@ -324,6 +392,49 @@
             ed.LeavingQuiescentState += HelloEditorReactor_LeavingQuiescentState;
             ed.PointMonitor += HelloEditorReactor_PointMonitor;
         }
+            </code>
+          </pre>
+        </details>
+      </center>
+      <hr class="horizontal_line" />
+      <center>
+        <p class="text_style_in_btn">
+          Модуль 6. Оконный пользовательский интерфейс.
+          <strong>Команда: HELLOWINFORMSPALETTE</strong>
+        </p>
+        <br />
+        <img
+          class="gif_in_main_container"
+          src="./images/modules/module6/HELLOWINFORMSPALETTE.gif"
+          src="Окно с подсчётом количества примитивов"
+        />
+        <details>
+          <summary>Программная реализация функционала</summary>
+          <pre class="code_format">
+      <code>
+// Файл WinForms.cs. Отрисовываем окно
+[CommandMethod("HelloWinFormsPalette")]
+public void HelloWinFormsPalette()
+{
+    if (paletteSet == null)
+    {
+        paletteSet = new Platform.Windows.PaletteSet("HelloDotNET PaletteSet",
+            new Guid("6AA64CDC-7CBA-49C5-8A14-0B8775BAC5BC"));
+        paletteSet.Size = new System.Drawing.Size(300, 300);
+        paletteSet.MinimumSize = new System.Drawing.Size(300, 300);
+    }
+    else
+    {
+        paletteSet.Visible = true;
+    }
+    if (paletteWinForms == null)
+    {
+
+        PaletteWinFormsChild paletteWinForms = new PaletteWinFormsChild();
+        paletteSet.Add("WinFormsPalette", paletteWinForms);
+        paletteSet.Visible = true;
+    }
+}
             </code>
           </pre>
         </details>

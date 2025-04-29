@@ -18,6 +18,7 @@
   margin-top: 30px;
   font-weight: 900;
   font-size: 30px;
+  margin-bottom: 25px;
 }
 
 .h1_header_engineering_software_development {
@@ -33,7 +34,23 @@
 }
 
 .image_property {
+  display: inline-block;
   margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
   border-radius: 50px;
+  width: 90%;
+  height: auto;
   box-shadow: 0px 0px 40px 1px rgb(0, 0, 0);
+}
+
+.examples_of_works {
+  border: 5px solid black;
+  border-radius: 50px;
+}
+
+.examples_of_works:hover {
+  backdrop-filter: blur(10px);
+  transition: backdrop-filter 3s 0.5s;
 }
