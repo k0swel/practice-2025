@@ -1,0 +1,38 @@
+.container_main_text {
+  margin-top: 25px;
+  margin-left: 10%;
+  margin-right: 10%;
+
+  padding-top: 10px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 30px;
+  border: 2px solid black;
+  box-shadow: 0 0 29px 1px rgba(0, 0, 0, 0.5);
+  font-size: 24px;
+  border-radius: 30px 30px;
+}
+
+.custom-text-about-journal {
+  padding-top: 1.4em;
+  font-weight: 600;
+  color: rgb(0, 7, 6);
+}
+
+.image_class {
+  display: block;
+  margin: 1em auto;
+  border-radius: 50px;
+  width: 500px;
+}
+
+.event_container {
+  backdrop-filter: blur(2px);
+  border: 5px solid black;
+  padding: 10px;
+  border-radius: 2em;
+}
+
+.paragraph_style {
+  margin: 0px 2em;
+}

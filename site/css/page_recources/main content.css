@@ -1,0 +1,24 @@
+.recources-container {
+  margin-top: 25px;
+  margin-left: 10%;
+  margin-right: 10%;
+
+  padding-top: 10px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 30px;
+
+  border: 2px solid black;
+  box-shadow: 0 0 29px 1px rgba(0, 0, 0, 0.5);
+  font-size: 24px;
+  border-radius: 30px 30px;
+}
+
+.custom-text-recources {
+  border: 3px solid black;
+  border-radius: 2em;
+  backdrop-filter: blur(2px);
+  backdrop-filter: brightness(0.9);
+  padding: 1em;
+  color: rgb(1, 7, 6);
+}

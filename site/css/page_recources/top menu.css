@@ -1,0 +1,87 @@
+.menu-buttons {
+  margin-left: 2%;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.mpu_logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 55%;
+  box-shadow: 0 0 100px 10px rgb(0, 0, 0);
+}
+.button_to_main_page {
+  margin-left: 5em;
+  height: 5em;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 20px;
+  border: 5px solid black;
+  border-radius: 3em;
+}
+
+.button_to_main_page:hover {
+  border: 5px solid pink;
+  cursor: grab;
+}
+
+.button_about_project {
+  margin-left: 5em;
+  height: 5em;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 20px;
+  border: 5px solid black;
+  border-radius: 3em;
+}
+
+.button_about_project:hover {
+  border: 5px solid pink;
+  cursor: grab;
+}
+
+.btn_to_members {
+  margin-left: 5em;
+  height: 5em;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 20px;
+  border: 5px solid black;
+  border-radius: 3em;
+}
+
+.btn_to_members:hover {
+  border: 5px solid pink;
+  cursor: grab;
+}
+
+.btn_to_journal_page {
+  margin-left: 5em;
+  height: 5em;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 20px;
+  border: 5px solid black;
+  border-radius: 3em;
+}
+
+.btn_to_journal_page:hover {
+  border: 5px solid pink;
+  cursor: grab;
+}
+
+.btn_to_recources_page {
+  margin-left: 5em;
+  height: 5em;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 20px;
+  border: 5px solid rgb(225, 24, 85);
+  border-radius: 3em;
+}
+
+.btn_to_recources_page:hover {
+  border: 5px solid pink;
+  cursor: grab;
+}
