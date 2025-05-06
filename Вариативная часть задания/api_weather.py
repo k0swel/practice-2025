@@ -11,7 +11,7 @@ def get_coords(city: str) -> dict:
     URL: str = f'http://api.openweathermap.org/geo/1.0/direct?q={city}&appid={API}' #ссылка для запроса
     request_to_get_coords: list = requests.get(url=URL).json()  # ответ на запрос координат по городу
     if len(request_to_get_coords) == 0: ## если список ответа ничем не заполнен - значит мы ввели неверный город
-        raise Error(text='Город введён некорректно!')
+        raise Error(error_text='Город введен некорректно')
     else:
         lat: int = request_to_get_coords[0]['lat']  # широта
         lon: int = request_to_get_coords[0]['lon']  # долгота

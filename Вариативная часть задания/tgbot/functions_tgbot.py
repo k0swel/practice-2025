@@ -1,5 +1,5 @@
 from telebot.types import Message
-
+from error import Error
 from api_weather import get_coords
 from main import Bot
 import keyboard
@@ -7,7 +7,11 @@ import api_weather
 
 async def send_weather_by_city(message: Message) -> None:
     city: str = message.text # устанавливаем значение города
-    weather: dict = api_weather.get_weather(get_coords(city), time='now', units='metric')
+    try:
+        weather: dict = api_weather.get_weather(get_coords(city), time='now', units='metric') # обрабатываем событие если мы ввели город неверно.
+    except Error as er:
+        await Bot.send_message(chat_id = message.chat.id, text=f'Произошла ошибка при запросе погоды: <b>{er.text_error()}</b>. Попробуйте ещё раз!',)
+        return
     if weather['feels_like'] < 13:  # если температура меньше 13 по цельсию
         temp: str = str(weather['temp']) + '°C 🥶'
         feels_like: str = str(weather['feels_like']) + ' °C 🥶'
@@ -31,11 +35,13 @@ async def send_weather_by_city(message: Message) -> None:
         weather_str: str = 'Облачно ☁️'
     elif weather['weather'] == 'Clear':
         weather_str: str = 'Ясно ☁️❌'
-    await Bot.send_message(chat_id=message.json['chat']['id'], text=f'🌆Погода в городе *{message.text}*:\n\nТемпература: {temp}\nОщущается как {feels_like}\nСкорость ветра: {windy_speed}\nПогода: {weather_str}', reply_markup=keyboard.start_markup()) # печатаем сообщение пользователю
+    else:
+        weather_str: str = weather['weather']
+    await Bot.send_message(chat_id=message.json['chat']['id'], text=f'🌆Погода в городе <b>{message.text}</b>:\n\nТемпература: {temp}\nОщущается как {feels_like}\nСкорость ветра: {windy_speed}\nПогода: {weather_str}', reply_markup=keyboard.start_markup()) # печатаем сообщение пользователю
 
 
 
-async def send_weather_location(message: Message) -> None:
+async def send_weather_by_location(message: Message) -> None:
     longitude: int = message.json['location']['longitude']  # вытаскиваем широту
     latitude: int = message.json['location']['latitude']  # вытаскиваем долготу
     weather: dict = api_weather.get_weather(coords={'longitude': longitude, 'latitude': latitude}, time='now',
@@ -64,4 +70,6 @@ async def send_weather_location(message: Message) -> None:
         weather_str: str = 'Облачно ☁️'
     elif weather['weather'] == 'Clear':
         weather_str: str = 'Ясно ☁️❌'
-    await Bot.send_message(chat_id=message.json['chat']['id'], text=f'🙄Хм... Вы находитесь в каком-то странном под названием *{weather['name of place']}*\n\nТемпература: {temp}\nОщущается как {feels_like}\nСкорость ветра: {windy_speed}\nПогода: {weather_str}') # печатаем сообщение пользователю
+    else:
+        weather_str: str = weather['weather']
+    await Bot.send_message(chat_id=message.json['chat']['id'], text=f'🙄Хм\\.\\.\\. Вы находитесь в каком-то странном под названием <b>{weather['name of place']}</b>\n\nТемпература: {temp}\nОщущается как {feels_like}\nСкорость ветра: {windy_speed}\nПогода: {weather_str}') # печатаем сообщение пользователю

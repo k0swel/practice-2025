@@ -13,7 +13,7 @@ load_dotenv(find_dotenv()) # загружаем переменные из вир
 
 BOT_TOKEN: str = os.getenv('tg_bot_token')
 
-Bot: AsyncTeleBot = AsyncTeleBot(token=BOT_TOKEN,parse_mode='markdown')
+Bot: AsyncTeleBot = AsyncTeleBot(token=BOT_TOKEN,parse_mode='HTML')
 
 @Bot.message_handler(commands=['start'])
 async def hi_message(message: Message):
@@ -23,7 +23,7 @@ async def hi_message(message: Message):
                                                    'К сожалению мне не хватает материальной поддержки, чтобы отправлять тебе погоду из любого населенного пункта планеты(. Поэтому не обижайся, если я не смогу что-то найти❤️',
                      reply_markup=start_markup())
 
-@Bot.message_handler(func = lambda message: message.text=='Узнать погоду в городе')
+@Bot.message_handler(func = lambda message: message.text=='Узнать погоду в городе🌆')
 async def check_weather_in_users_city(message: Message):
     await Bot.send_message(chat_id=message.json['chat']['id'], text='Старайтесь вводить название вашего города🌆 на английском языке (в противном случае я возможно не смогу найти информацию о погоде 🥺)', reply_markup=ReplyKeyboardRemove())
     await Bot.set_state(user_id=message.from_user.id, state=states.States.wait_city, chat_id=message.chat.id)
