@@ -16,26 +16,27 @@ def get_coords(city: str) -> dict:
         lat: int = request_to_get_coords[0]['lat']  # широта
         lon: int = request_to_get_coords[0]['lon']  # долгота
 
-        return_variable: dict = {'lat': lat, 'lon': lon, 'city': city}
+        return_variable: dict = {'latitude': lat, 'longitude': lon, 'city': city}
         return return_variable
 
 
-def get_weather(coords: dict, time: str, units: str) -> dict: # units = единица измерения температуры. metric = цельсии, imperial = фаренгеит, standard = калвины
+def get_weather(coords: dict[str, int], time: str, units: str) -> dict | None: # units = единица измерения температуры. metric = цельсии, imperial = фаренгеит, standard = калвины
     return_variable: dict # значение, которое будет возвращать функция
 
     if time == 'now': #если нужно получить погоду в данный момент времени
-        URL: str = f'https://api.openweathermap.org/data/2.5/weather?lat={coords.get('lat')}&lon={coords.get('lon')}&appid={API}&units={units}'
+        URL: str = f'https://api.openweathermap.org/data/2.5/weather?lat={coords.get('latitude')}&lon={coords.get('longitude')}&appid={API}&units={units}'
         request_to_get_weather: dict = requests.get(url=URL).json() # ответ на запрос
-        return_variable = {'temp': round(request_to_get_weather['main']['temp'], 0), # температура в цельсиях
-                           'feels_like': round(request_to_get_weather['main']['feels_like'], 0), # насколько ощущается погода
-                           'windy_speed': request_to_get_weather['wind']['speed'], # скорость ветра км/ч
-                           'weather': request_to_get_weather['weather'][0]['main'] # описание погоды
+        return_variable = {'temp': int(request_to_get_weather['main']['temp']), # температура в цельсиях
+                           'feels_like': int(request_to_get_weather['main']['feels_like']), # насколько ощущается погода
+                           'windy_speed': int(request_to_get_weather['wind']['speed']), # скорость ветра км/ч
+                           'weather': request_to_get_weather['weather'][0]['main'], # описание погоды
+                           "name of place": request_to_get_weather['name'] # город
                            }
         return return_variable
     else:
         URL: str = f'https://pro.openweathermap.org/data/2.5/forecast/hourly?lat={coords.get('lat')}&lon={coords.get('lon')}&appid={API}'
         request_to_get_weather: dict = requests.get(url=URL).json()  # ответ на запрос
-        print(request_to_get_weather)
+        return None
 
 
 
