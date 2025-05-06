@@ -41,6 +41,7 @@ async def get_weather_location(message: Message):
 
 
 async def main(): # запускаем бота
+    print('Bot launch successfully!')
     Bot.add_custom_filter(StateFilter(bot=Bot))
     await Bot.infinity_polling()
 
