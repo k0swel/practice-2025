@@ -10,7 +10,7 @@ async def send_weather_by_city(message: Message) -> None:
     try:
         weather: dict = api_weather.get_weather(get_coords(city), time='now', units='metric') # обрабатываем событие если мы ввели город неверно.
     except Error as er:
-        await Bot.send_message(chat_id = message.chat.id, text=f'Произошла ошибка при запросе погоды: <b>{er.text_error()}</b>. Попробуйте ещё раз!',)
+        await Bot.send_message(chat_id = message.chat.id, text=f'Произошла ошибка при запросе погоды: <b>{er.text_error()}</b>. Попробуйте ещё раз!')
         return
     if weather['feels_like'] < 13:  # если температура меньше 13 по цельсию
         temp: str = str(weather['temp']) + '°C 🥶'
@@ -37,7 +37,7 @@ async def send_weather_by_city(message: Message) -> None:
         weather_str: str = 'Ясно ☁️❌'
     else:
         weather_str: str = weather['weather']
-    await Bot.send_message(chat_id=message.json['chat']['id'], text=f'🌆Погода в городе <b>{message.text}</b>:\n\nТемпература: {temp}\nОщущается как {feels_like}\nСкорость ветра: {windy_speed}\nПогода: {weather_str}', reply_markup=keyboard.start_markup()) # печатаем сообщение пользователю
+    await Bot.send_message(chat_id=message.chat.id, text=f'🌆Погода в городе <b>{message.text}</b>:\n\nТемпература: {temp}\nОщущается как {feels_like}\nСкорость ветра: {windy_speed}\nПогода: {weather_str}', reply_markup=keyboard.start_markup()) # печатаем сообщение пользователю
 
 
 

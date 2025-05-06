@@ -8,12 +8,14 @@ import states
 from keyboard import start_markup
 import functions_tgbot
 import asyncio
+import logging
+logging.basicConfig(level=logging.DEBUG)  # Добавьте в начало кода
 
-load_dotenv(find_dotenv()) # загружаем переменные из виртуального окружения в систему
+load_dotenv('./.venv') # загружаем переменные из виртуального окружения в систему
 
 BOT_TOKEN: str = os.getenv('tg_bot_token')
-
 Bot: AsyncTeleBot = AsyncTeleBot(token=BOT_TOKEN,parse_mode='HTML')
+
 
 @Bot.message_handler(commands=['start'])
 async def hi_message(message: Message):
@@ -37,7 +39,7 @@ async def get_weather_city(message: Message):
 @Bot.message_handler(content_types=['location'])
 async def get_weather_location(message: Message):
     await Bot.send_sticker(chat_id=message.chat.id, sticker='CAACAgIAAxkBAAM1aBkqNEts3jWS0Yd5HwABUW5Bxu_dAAIhQgACfycxSKvlnJR7gocvNgQ')
-    await functions_tgbot.send_weather(message)
+    await functions_tgbot.send_weather_by_location(message)
 
 
 async def main(): # запускаем бота
