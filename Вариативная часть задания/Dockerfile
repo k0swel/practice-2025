@@ -1,5 +1,5 @@
-FROM ubuntu/python:3.12-24.04_stable
+FROM python:latest
 WORKDIR tgbot
 COPY . .
-RUN pip install -r ./requirements.txt
-CMD ['python ./main.py']
+RUN pip install -r requirements.txt
+CMD ["python3", "./main.py"]
