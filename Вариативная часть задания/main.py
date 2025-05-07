@@ -33,8 +33,8 @@ async def check_weather_in_users_city(message: Message):
 @Bot.message_handler(state=states.States.wait_city)
 async def get_weather_city(message: Message):
     await Bot.send_sticker(chat_id=message.chat.id, sticker='CAACAgIAAxkBAAM1aBkqNEts3jWS0Yd5HwABUW5Bxu_dAAIhQgACfycxSKvlnJR7gocvNgQ')
-    await functions_tgbot.send_weather_by_city(message)
-    await Bot.delete_state(user_id=message.from_user.id, chat_id=message.chat.id)
+    if await functions_tgbot.send_weather_by_city(message): # если функция вернула истину, то очищаем состояние.
+        await Bot.delete_state(user_id=message.from_user.id, chat_id=message.chat.id)
 
 @Bot.message_handler(content_types=['location'])
 async def get_weather_location(message: Message):
@@ -45,7 +45,7 @@ async def get_weather_location(message: Message):
 async def main(): # запускаем бота
     print('Bot launch successfully!')
     Bot.add_custom_filter(StateFilter(bot=Bot))
-    await Bot.infinity_polling()
+    await Bot.polling(skip_pending=True)
 
 if __name__ == '__main__':
     asyncio.run(main())
