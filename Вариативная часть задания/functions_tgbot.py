@@ -5,13 +5,13 @@ from main import Bot
 import keyboard
 import api_weather
 
-async def send_weather_by_city(message: Message) -> None:
+async def send_weather_by_city(message: Message) -> bool:
     city: str = message.text # устанавливаем значение города
     try:
-        weather: dict = api_weather.get_weather(get_coords(city), time='now', units='metric') # обрабатываем событие если мы ввели город неверно.
+        weather: dict = await api_weather.get_weather(await get_coords(city), time='now', units='metric') # обрабатываем событие если мы ввели город неверно.
     except Error as er:
-        await Bot.send_message(chat_id = message.chat.id, text=f'Произошла ошибка при запросе погоды: <b>{er.text_error()}</b>. Попробуйте ещё раз!')
-        return
+        await Bot.send_message(chat_id = message.chat.id, text=f'⛔️ Произошла ошибка при запросе погоды: <b>{er.text_error()}</b>. Попробуйте ещё раз! 🔄', reply_markup=keyboard.stop_trying())
+        return False
     if weather['feels_like'] < 13:  # если температура меньше 13 по цельсию
         temp: str = str(weather['temp']) + '°C 🥶'
         feels_like: str = str(weather['feels_like']) + ' °C 🥶'
@@ -38,13 +38,13 @@ async def send_weather_by_city(message: Message) -> None:
     else:
         weather_str: str = weather['weather']
     await Bot.send_message(chat_id=message.chat.id, text=f'🌆Погода в городе <b>{message.text}</b>:\n\nТемпература: {temp}\nОщущается как {feels_like}\nСкорость ветра: {windy_speed}\nПогода: {weather_str}', reply_markup=keyboard.start_markup()) # печатаем сообщение пользователю
-
+    return True
 
 
 async def send_weather_by_location(message: Message) -> None:
     longitude: int = message.json['location']['longitude']  # вытаскиваем широту
     latitude: int = message.json['location']['latitude']  # вытаскиваем долготу
-    weather: dict = api_weather.get_weather(coords={'longitude': longitude, 'latitude': latitude}, time='now',
+    weather: dict = await api_weather.get_weather(coords={'longitude': longitude, 'latitude': latitude}, time='now',
                                             units='metric')  # узнаём погоду
     ## Температура
     if weather['feels_like'] < 13:  # если температура меньше 13 по цельсию
@@ -72,4 +72,4 @@ async def send_weather_by_location(message: Message) -> None:
         weather_str: str = 'Ясно ☁️❌'
     else:
         weather_str: str = weather['weather']
-    await Bot.send_message(chat_id=message.json['chat']['id'], text=f'🙄Хм\\.\\.\\. Вы находитесь в каком-то странном под названием <b>{weather['name of place']}</b>\n\nТемпература: {temp}\nОщущается как {feels_like}\nСкорость ветра: {windy_speed}\nПогода: {weather_str}') # печатаем сообщение пользователю
+    await Bot.send_message(chat_id=message.json['chat']['id'], text=f'🙄Хм... Вы находитесь в каком-то странном под названием <b>{weather['name of place']}</b>\n\nТемпература: {temp}\nОщущается как {feels_like}\nСкорость ветра: {windy_speed}\nПогода: {weather_str}') # печатаем сообщение пользователю
