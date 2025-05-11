@@ -18,7 +18,7 @@
   padding-left: 40px;
   padding-right: 40px;
   font-size: 1.2em;
-  border: 0.15em solid rgb(225, 24, 85);
+  border: 0.15em solid black;
   border-radius: 1em;
 }
 
@@ -90,7 +90,7 @@
 
 .btn_telegram_bot {
   margin-left: 3em;
-  border: 0.15em solid black;
+  border: 0.15em solid rgb(225, 24, 85);
   border-radius: 3em;
   padding-left: 40px;
   padding-right: 40px;

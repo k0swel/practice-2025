@@ -1,87 +1,108 @@
+/* ВЕРХНЕЕ МЕНЮ НАЧАЛО */
+
 .menu-buttons {
-  margin-left: 2%;
+  margin-left: 2rem;
   margin-top: 20px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 
 .mpu_logo {
   width: 150px;
   height: 150px;
-  border-radius: 55%;
-  box-shadow: 0 0 100px 10px rgb(0, 0, 0);
+  border-radius: 50%;
 }
 .button_to_main_page {
-  margin-left: 5em;
-  height: 5em;
+  margin-left: 3em;
+  height: 4em;
   padding-left: 40px;
   padding-right: 40px;
-  font-size: 20px;
-  border: 5px solid black;
-  border-radius: 3em;
+  font-size: 1.2em;
+  border: 0.15em solid black;
+  border-radius: 1em;
 }
 
 .button_to_main_page:hover {
-  border: 5px solid pink;
+  border: 0.15em solid green;
   cursor: grab;
 }
 
 .button_about_project {
-  margin-left: 5em;
-  height: 5em;
+  margin-left: 3em;
+  height: 4em;
   padding-left: 40px;
   padding-right: 40px;
-  font-size: 20px;
-  border: 5px solid black;
-  border-radius: 3em;
+  font-size: 1.2em;
+  border: 0.15em solid black;
+  border-radius: 1em;
 }
 
 .button_about_project:hover {
-  border: 5px solid pink;
+  border: 0.15em solid green;
   cursor: grab;
 }
 
 .btn_to_members {
-  margin-left: 5em;
-  height: 5em;
+  margin-left: 3em;
+  height: 4em;
   padding-left: 40px;
   padding-right: 40px;
-  font-size: 20px;
-  border: 5px solid black;
-  border-radius: 3em;
+  font-size: 1.2em;
+  border: 0.15em solid black;
+  border-radius: 1em;
 }
 
 .btn_to_members:hover {
-  border: 5px solid pink;
+  border: 0.15em solid green;
   cursor: grab;
 }
 
 .btn_to_journal_page {
-  margin-left: 5em;
-  height: 5em;
+  margin-left: 3em;
+  height: 4em;
   padding-left: 40px;
   padding-right: 40px;
-  font-size: 20px;
-  border: 5px solid black;
-  border-radius: 3em;
+  font-size: 1.2em;
+  border: 0.15em solid black;
+  border-radius: 1em;
 }
 
 .btn_to_journal_page:hover {
-  border: 5px solid pink;
+  border: 0.15em solid green;
   cursor: grab;
 }
 
 .btn_to_recources_page {
-  margin-left: 5em;
-  height: 5em;
+  margin-left: 3em;
+  height: 4em;
+  max-width: 8em;
   padding-left: 40px;
   padding-right: 40px;
-  font-size: 20px;
-  border: 5px solid rgb(225, 24, 85);
-  border-radius: 3em;
+  font-size: 1.2em;
+  border: 0.15em solid rgb(225, 24, 85);
+  border-radius: 1em;
 }
 
 .btn_to_recources_page:hover {
-  border: 5px solid pink;
+  border: 0.15em solid green;
   cursor: grab;
 }
+
+.btn_telegram_bot {
+  margin-left: 3em;
+  border: 0.15em solid black;
+  border-radius: 3em;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-right: 2em;
+  height: 4em;
+  font-size: 1.2em;
+  max-width: 16em;
+}
+
+.btn_telegram_bot:hover {
+  border: 0.15em solid green;
+  cursor: grab;
+}
+
+/* ВЕРХНЕЕ МЕНЮ КОНЕЦ. */
