@@ -42,10 +42,6 @@
   background-color: rgba(92, 92, 92, 0.2);
 }
 
-.recources-container img:hover {
-  border: 10px solid rgba(168, 9, 9, 0.1);
-}
-
 .recources-container code {
   background-color: #f5f5f5;
   padding: 2px 5px;
@@ -58,7 +54,7 @@
   background-color: #f5f5f5;
   padding: 15px;
   border-radius: 5px;
-  overflow-x: auto;
+  overflow-x: scroll;
   font-family: monospace;
   line-height: 1.4;
   margin: 1em 0;

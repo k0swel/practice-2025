@@ -1,0 +1,98 @@
+.recources-container {
+  max-width: 1200px;
+  margin: 2em auto;
+  padding: 2em;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  font-family: "Times New Roman", sans-serif;
+  font-size: 20px;
+  color: #333;
+}
+
+.recources-container h1 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.recources-container h2 {
+  color: #2980b9;
+  margin-top: 1em;
+}
+
+.recources-container h3 {
+  color: #16a085;
+}
+
+.recources-container a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 1s;
+}
+
+.recources-container a:hover {
+  color: #e74c3c;
+  text-decoration: underline;
+}
+
+.recources-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1em 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.recources-container code {
+  background-color: #f5f5f5;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.recources-container pre {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: scroll;
+  font-family: monospace;
+  line-height: 1.4;
+  margin: 1em 0;
+}
+
+.recources-container blockquote {
+  border-left: 4px solid #3498db;
+  padding-left: 15px;
+  margin: 1em 0;
+  color: #555;
+  font-style: italic;
+}
+
+.recources-container details {
+  display: inline-block;
+  margin-top: 0.5em;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  border: 3px solid black;
+}
+
+.recources-container details:active {
+  border: none;
+}
+
+.telegram-bot-image {
+  display: block; /* делает изображение блочным элементом */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.highlight {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  margin: 1em 0;
+}

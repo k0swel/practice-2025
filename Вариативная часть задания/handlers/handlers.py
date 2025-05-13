@@ -41,6 +41,7 @@ def handler_get_weather_by_location(bot: AsyncTeleBot):
         longitude: float = message.json['location']['longitude']  # вытаскиваем широту
         latitude: float = message.json['location']['latitude']  # вытаскиваем долготу
         await bot.send_sticker(chat_id=message.chat.id, sticker='CAACAgIAAxkBAAM1aBkqNEts3jWS0Yd5HwABUW5Bxu_dAAIhQgACfycxSKvlnJR7gocvNgQ') # отправляем крутой стикер.
+        await bot.send_chat_action(chat_id=message.chat.id, action='typing') # отправляем пользоветелю событие, что бот что-то печатает
         weather: dict = await api_weather.get_weather(coords={'longitude': longitude, 'latitude': latitude}) # переменная где хранится погода
         if weather is not None: # если функция вернула истину, то очищаем состояние.
             message_to_send: str = f'🙄Хм... Вы находитесь в каком-то странном под названием <b>{weather['name of place']}</b>\n\nТемпература: {weather['temp']}\nОщущается как {weather['feels_like']}\nСкорость ветра: {weather['windy_speed']}\nПогода: {weather['weather']}'
@@ -57,6 +58,7 @@ def handler_get_weather_by_city(bot: AsyncTeleBot):
     @bot.message_handler(state=States.wait_city)
     async def get_weather_in_city(city: Message):
         await bot.send_sticker(chat_id=city.chat.id, sticker='CAACAgIAAxkBAAM1aBkqNEts3jWS0Yd5HwABUW5Bxu_dAAIhQgACfycxSKvlnJR7gocvNgQ')
+        await bot.send_chat_action(chat_id=city.chat.id, action='typing') # отправляем пользоветелю событие, что бот что-то печатает
         weather_result = await api_weather.get_weather_in_city_api(city) # получаем словарь с результатами погоды
         if weather_result is not None: # если функция вернула истину, то очищаем состояние.
             message_to_send: str = f"""🌆Погода в городе <strong>{city.text}</strong>:\n\nТемпература: {weather_result['temp']}\nОщущается как {weather_result['feels_like']}\nСкорость ветра: {weather_result['windy_speed']}\nПогода: {weather_result['weather']}""" # переменная, которая будет отправлена клиенту

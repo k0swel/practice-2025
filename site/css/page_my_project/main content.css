@@ -47,10 +47,6 @@
   background-color: rgba(92, 92, 92, 0.2);
 }
 
-.recources-container img:hover {
-  border: 10px solid rgba(168, 9, 9, 0.1);
-}
-
 center code {
   background-color: #f5f5f5;
   padding: 2px 5px;

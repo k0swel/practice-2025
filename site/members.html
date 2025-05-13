@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/page_members/top menu.css" />
     <link rel="stylesheet" href="./css/page_members/main content.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <title>Участники</title>
   </head>
   <body style="background-image: url(./images/backgrounds/blue_background.jpg)">
@@ -75,52 +80,52 @@
         </caption>
         <thead>
           <tr>
-            <td>Номер модуля</td>
-            <td>Краткая информация о модуле</td>
+            <td style="text-align: center">Номер модуля</td>
+            <td style="text-align: center">Краткая информация о модуле</td>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Модуль 1</strong></td>
+            <td style="text-align: center"><strong>Модуль 1</strong></td>
             <td>
               Введение в .NET API. Ввод данных, ключевые слова. Транзакции,
               создание объектов. Выбор, наборы выбора, приведение типов.
             </td>
           </tr>
           <tr>
-            <td><strong>Модуль 2</strong></td>
+            <td style="text-align: center"><strong>Модуль 2</strong></td>
             <td>Сложные составные объекты. Блоки, полилинии, размеры.</td>
           </tr>
           <tr>
-            <td><strong>Модуль 3</strong></td>
+            <td style="text-align: center"><strong>Модуль 3</strong></td>
             <td>
               Геометрическая библиотека, работа с кривыми. Координатные системы,
               команды в ПСК.
             </td>
           </tr>
           <tr>
-            <td><strong>Модуль 4</strong></td>
+            <td style="text-align: center"><strong>Модуль 4</strong></td>
             <td>
               Основные свойства примитивов. Интерактивное создание и
               редактирование примитивов: Jig.
             </td>
           </tr>
           <tr>
-            <td><strong>Модуль 5</strong></td>
+            <td style="text-align: center"><strong>Модуль 5</strong></td>
             <td>
               Реакторы. События базы данных, редактора, системы. Контроль
               объектов, находящихся под курсором.
             </td>
           </tr>
           <tr>
-            <td><strong>Модуль 6</strong></td>
+            <td style="text-align: center"><strong>Модуль 6</strong></td>
             <td>
               Создание окон на WinForms/WPF. Палитры. Программный интерфейс
               подсистемы печати.
             </td>
           </tr>
           <tr>
-            <td><strong>Модуль 7</strong></td>
+            <td style="text-align: center"><strong>Модуль 7</strong></td>
             <td>
               Таблицы .dwg. Неграфические данные. XData, XRecord, словари
               расширения. Переопределение характеристик объектов чертежа:
@@ -128,7 +133,7 @@
             </td>
           </tr>
           <tr>
-            <td><strong>Модуль 8</strong></td>
+            <td style="text-align: center"><strong>Модуль 8</strong></td>
             <td>MultiCAD.NET. Элементы оформления и таблицы.</td>
           </tr>
         </tbody>
@@ -145,16 +150,16 @@
       </center>
       <hr />
       <center>
-        <p>Модуль 1. Реализация команды <strong>Hello</strong>.</p>
-        <br />
+        <h3>Модуль 1. Реализация команды <strong>Hello</strong>.</h3>
         <img
           src="./images/modules/module1/hello world.gif"
-          src="Hello World в NanoCAD"
+          alt="Hello World в NanoCAD"
+          loading="lazy"
         />
         <details>
           <summary>Программная реализация функционала</summary>
           <pre>
-            <code>
+            <code class="language-csharp">
           [CommandMethod("Hello")]
           public void Hello()
           {
@@ -224,19 +229,19 @@
       </center>
       <hr />
       <center>
-        <p>
+        <h3>
           Модуль 3. Реализация команды <strong>HelloIntersect</strong>(точка
           пересечения двух векторов).
-        </p>
-        <br />
+        </h3>
         <img
           src="./images/modules/module3/Точка пересечения.gif"
           alt="Поиск точки пересечения в NanoCAD"
+          loading="lazy"
         />
         <details>
           <summary>Программная реализация функционала</summary>
           <pre>
-            <code>
+            <code class="language-csharp">
       [CommandMethod("HelloIntersect")]
       public void HelloIntersect()
       {
@@ -273,7 +278,8 @@
       
                   // TODO 3.2.1: Вычислить точки пересечения примитивов ent1 и ent2,
                   // используя метод Entity.IntersectWith()
-                  ent1.IntersectWith(ent2, Intersect.OnBothOperands, intersectionPoints, IntPtr.Zero, IntPtr.Zero);
+                  ent1.IntersectWith(ent2, Intersect.OnBothOperands, intersectionPoints,
+                   IntPtr.Zero, IntPtr.Zero);
                   ed.WriteMessage("Число пересечений: {0}\n", intersectionPoints.Count);
       
                   foreach (Point3d p in intersectionPoints)
@@ -295,19 +301,20 @@
       </center>
       <hr />
       <center>
-        <p>
+        <h3>
           Модуль 4. Реализация команды
           <strong>HelloDrawJig</strong>(предварительная отрисовка
           прямоугольника).
-        </p>
+        </h3>
         <img
           src="./images/modules/module4/HelloDrawJig.gif"
           alt="Предварительная отрисовка прямоугольника"
+          loading="lazy"
         />
         <details>
           <summary>Программная реализация функционала</summary>
           <pre>
-            <code>
+            <code class="language-csharp">
     [CommandMethod("HelloDrawJig")]
     public void HelloRECTDIMDrawJig()
     {
@@ -315,8 +322,7 @@
       Document doc = Application.DocumentManager.MdiActiveDocument;
       Editor ed = doc.Editor;
       Database db = doc.Database;
-      ObjectId CurrentSpaceId = db.CurrentSpaceId; // Использовать, если
-                                             // нужно добавлять объекты в текущий лист, вместо ModelSpace
+      ObjectId CurrentSpaceId = db.CurrentSpaceId; // Использовать, если нужно добавлять объекты в текущий лист, вместо ModelSpace
 
       // Переменная для базовой точки прямоугольника
       Point3d p1;
@@ -362,19 +368,20 @@
       </center>
       <hr />
       <center>
-        <p>
+        <h3>
           Модуль 5. Реализация команды
           <strong>HelloEditorReactorAdd</strong>(рисуем окружность в текущей
           позиции курсора).
-        </p>
+        </h3>
         <img
           src="./images/modules/module5/Рисуем окружность.gif"
-          src="Рисуем окружность в текущей позиции курсора."
+          alt="Рисуем окружность в текущей позиции курсора."
+          loading="lazy"
         />
         <details>
           <summary>Программная реализация функционала</summary>
           <pre>
-      <code>
+      <code class="language-csharp">
         void HelloEditorReactor_PointMonitor(object sender, PointMonitorEventArgs e){
             Point3d curPoint = e.Context.RawPoint;
             double Radius = 100.0;
@@ -403,45 +410,49 @@
       </center>
       <hr />
       <center>
-        <p>
+        <h3>
           Модуль 6. Оконный пользовательский интерфейс.
           <strong>Команда: HELLOWINFORMSPALETTE</strong>
-        </p>
+        </h3>
         <img
           src="./images/modules/module6/HELLOWINFORMSPALETTE.gif"
-          src="Окно с подсчётом количества примитивов"
+          alt="Окно с подсчётом количества примитивов"
+          loading="lazy"
         />
         <details>
           <summary>Программная реализация функционала</summary>
           <pre>
-      <code>
-// Файл WinForms.cs. Отрисовываем окно
-[CommandMethod("HelloWinFormsPalette")]
-public void HelloWinFormsPalette()
-{
-    if (paletteSet == null)
+      <code class="language-csharp">
+    // Файл WinForms.cs. Отрисовываем окно
+    [CommandMethod("HelloWinFormsPalette")]
+    public void HelloWinFormsPalette()
     {
-        paletteSet = new Platform.Windows.PaletteSet("HelloDotNET PaletteSet",
-            new Guid("6AA64CDC-7CBA-49C5-8A14-0B8775BAC5BC"));
-        paletteSet.Size = new System.Drawing.Size(300, 300);
-        paletteSet.MinimumSize = new System.Drawing.Size(300, 300);
-    }
-    else
-    {
-        paletteSet.Visible = true;
-    }
-    if (paletteWinForms == null)
-    {
+        if (paletteSet == null)
+        {
+            paletteSet = new Platform.Windows.PaletteSet("HelloDotNET PaletteSet",
+                new Guid("6AA64CDC-7CBA-49C5-8A14-0B8775BAC5BC"));
+            paletteSet.Size = new System.Drawing.Size(300, 300);
+            paletteSet.MinimumSize = new System.Drawing.Size(300, 300);
+        }
+        else
+        {
+            paletteSet.Visible = true;
+        }
+        if (paletteWinForms == null)
+        {
 
-        PaletteWinFormsChild paletteWinForms = new PaletteWinFormsChild();
-        paletteSet.Add("WinFormsPalette", paletteWinForms);
-        paletteSet.Visible = true;
+            PaletteWinFormsChild paletteWinForms = new PaletteWinFormsChild();
+            paletteSet.Add("WinFormsPalette", paletteWinForms);
+            paletteSet.Visible = true;
+        }
     }
-}
             </code>
           </pre>
         </details>
       </center>
     </div>
+    <script>
+      hljs.highlightAll();
+    </script>
   </body>
 </html>

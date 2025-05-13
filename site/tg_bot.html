@@ -5,95 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/page_tg_bot/main content.css" />
     <link rel="stylesheet" href="./css/page_tg_bot/top menu.css" />
-    <title>Ресурсы</title>
-    <style>
-      .recources-container {
-        max-width: 1200px;
-        margin: 2em auto;
-        padding: 2em;
-        background-color: rgba(255, 255, 255, 0.7);
-        border-radius: 15px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        font-family: "Times New Roman", sans-serif;
-        font-size: 20px;
-        color: #333;
-      }
-
-      .recources-container h1 {
-        color: #2c3e50;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 10px;
-      }
-
-      .recources-container h2 {
-        color: #2980b9;
-        margin-top: 1.5em;
-      }
-
-      .recources-container h3 {
-        color: #16a085;
-      }
-
-      .recources-container a {
-        color: #3498db;
-        text-decoration: none;
-        transition: color 1s;
-      }
-
-      .recources-container a:hover {
-        color: #e74c3c;
-        text-decoration: underline;
-      }
-
-      .recources-container img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        margin: 1em 0;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        display: block;
-      }
-
-      .recources-container code {
-        background-color: #f5f5f5;
-        padding: 2px 5px;
-        border-radius: 3px;
-        font-family: monospace;
-        font-size: 0.9em;
-      }
-
-      .recources-container pre {
-        background-color: #f5f5f5;
-        padding: 15px;
-        border-radius: 5px;
-        overflow-x: auto;
-        font-family: monospace;
-        line-height: 1.4;
-        margin: 1em 0;
-      }
-
-      .recources-container blockquote {
-        border-left: 4px solid #3498db;
-        padding-left: 15px;
-        margin: 1em 0;
-        color: #555;
-        font-style: italic;
-      }
-
-      .telegram-bot-image {
-        display: block; /* делает изображение блочным элементом */
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .highlight {
-        background-color: #f8f8f8;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 15px;
-        margin: 1em 0;
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <title>Узнай погоду в своём городе.</title>
   </head>
 
   <body style="background-image: url(./images/backgrounds/blue_background.jpg)">
@@ -104,6 +21,7 @@
             src="./images/logos/mpu_logo.png"
             alt="Московский политех"
             class="mpu_logo"
+            loading="lazy"
           />
         </a>
         <a href="index.html">
@@ -167,6 +85,7 @@
         <img
           src="https://github.com/user-attachments/assets/b62e634b-f88e-4c1a-b6a7-9bdf5930a98d"
           alt="Telegram Bot"
+          loading="lazy"
         />
       </a>
 
@@ -259,7 +178,7 @@
         <code>Telebot</code>:
       </p>
 
-      <pre><code>await Bot.polling(skip_pending=True, timeout=20) # запускаем цикл запросов на сервера Telegram c ожиданием ответа в 20 секунд.</code></pre>
+      <pre><code class="language-python">await Bot.polling(skip_pending=True, timeout=20) # запускаем цикл запросов на сервера Telegram c ожиданием ответа в 20 секунд.</code></pre>
 
       <p>
         Для эффективного взаимодействия Telegram бота библиотека
@@ -289,9 +208,13 @@
             src="https://github.com/user-attachments/assets/a02fe455-ef86-4010-b60f-be3fdc6a1f29"
             alt="Функционал бота"
             class="telegram-bot-image"
+            loading="lazy"
           />
         </details>
       </center>
     </div>
+    <script>
+      hljs.highlightAll();
+    </script>
   </body>
 </html>

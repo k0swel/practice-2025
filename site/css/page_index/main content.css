@@ -37,9 +37,13 @@
 }
 
 .recources-container button {
-  width: 30em;
+  width: 20em;
   height: 5em;
   transition: transform 1s;
+  border-radius: 2em;
+  background-color: rgba(167, 131, 161, 0.7);
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
 }
 
 .recources-container button:hover {
