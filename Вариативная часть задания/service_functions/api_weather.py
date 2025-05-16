@@ -69,7 +69,7 @@ def fill_weather_dict(weather_responce_from_http: dict) -> dict:
         weather['temp'] = str(weather_responce_from_http['feels_like']) + '°C 🥶'
         weather['feels_like'] = str(weather_responce_from_http['feels_like']) + ' °C 🥶'
     elif 13 <= weather_responce_from_http['feels_like'] <= 22:  # если температура между 13 и 22 по цельсию
-        weather['temp'] = str(weather_responce_from_http['feels_like']) + '🤗'
+        weather['temp'] = str(weather_responce_from_http['feels_like']) + '°C 🤗'
         weather['feels_like'] = str(weather_responce_from_http['feels_like']) + ' °C 🤗'
     else:  # если жарко
         weather['temp'] = str(weather_responce_from_http['feels_like']) + '🔥'
