@@ -66,7 +66,7 @@ def fill_weather_dict(weather_responce_from_http: dict) -> dict:
     weather: dict = dict() # возвращаемое значени
     # -------------Фактическая температура и как ощущается---------
     if weather_responce_from_http['feels_like'] < 13:  # если температура меньше 13 по цельсию
-        weather['temp'] = str(weather_responce_from_http['feels_like']) + '°C 🥶'
+        weather['temp'] = str(weather_responce_from_http['temp']) + '°C 🥶'
         weather['feels_like'] = str(weather_responce_from_http['feels_like']) + ' °C 🥶'
     elif 13 <= weather_responce_from_http['feels_like'] <= 22:  # если температура между 13 и 22 по цельсию
         weather['temp'] = str(weather_responce_from_http['feels_like']) + '°C 🤗'
@@ -78,9 +78,9 @@ def fill_weather_dict(weather_responce_from_http: dict) -> dict:
 
     # ------------------------Скорость ветра----------------------
     if weather_responce_from_http['windy_speed'] < 10:
-        weather['windy_speed'] = str(weather_responce_from_http['feels_like']) + ' км/ч 🐢'
+        weather['windy_speed'] = str(weather_responce_from_http['windy_speed']) + ' км/ч 🐢'
     else:
-        weather['windy_speed'] = str(weather_responce_from_http['feels_like']) + ' км/ч 💨'
+        weather['windy_speed'] = str(weather_responce_from_http['windy_speed']) + ' км/ч 💨'
     # -----------------------------------------------------------
 
     # --------------Погода (солнечно, ветренно и.т.п)-------------
